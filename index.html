@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crop Recommendation</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Crop Recommendation</h1>
+    <p class="subtitle">with model confidence and out-of-range detection</p>
+
+    <!-- type="text" is used on purpose so that words and symbols can be typed
+         and our own validation can show "Invalid input" -->
+    <form id="crop-form" novalidate>
+      <div class="field">
+        <label for="N">Nitrogen (N)</label>
+        <input type="text" id="N" placeholder="0 - 300">
+        <span class="error" id="error-N"></span>
+      </div>
+
+      <div class="field">
+        <label for="P">Phosphorus (P)</label>
+        <input type="text" id="P" placeholder="0 - 200">
+        <span class="error" id="error-P"></span>
+      </div>
+
+      <div class="field">
+        <label for="K">Potassium (K)</label>
+        <input type="text" id="K" placeholder="0 - 400">
+        <span class="error" id="error-K"></span>
+      </div>
+
+      <div class="field">
+        <label for="temperature">Temperature (&deg;C)</label>
+        <input type="text" id="temperature" placeholder="-10 to 60">
+        <span class="error" id="error-temperature"></span>
+      </div>
+
+      <div class="field">
+        <label for="humidity">Humidity (%)</label>
+        <input type="text" id="humidity" placeholder="0 - 100">
+        <span class="error" id="error-humidity"></span>
+      </div>
+
+      <div class="field">
+        <label for="ph">Soil pH</label>
+        <input type="text" id="ph" placeholder="0 - 14">
+        <span class="error" id="error-ph"></span>
+      </div>
+
+      <div class="field">
+        <label for="rainfall">Rainfall (mm)</label>
+        <input type="text" id="rainfall" placeholder="0 - 3000">
+        <span class="error" id="error-rainfall"></span>
+      </div>
+
+      <div class="buttons">
+        <button type="submit">Recommend crop</button>
+        <button type="button" id="clear-btn" class="secondary">Clear</button>
+      </div>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <script src="/static/validation.js"></script>
+  <script src="/static/script.js"></script>
+</body>
+</html>
